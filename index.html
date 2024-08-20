@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars API</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Star Wars API</h1>
+    </header>
+    <main>
+        <select id="categoria" onchange="MostrarCategoria()">
+            <option value="all">Todo</option>
+            <option value="films">Peliculas</option>
+            <option value="people">Personas</option>
+            <option value="planets">Planetas</option>
+            <option value="species">Especies</option>
+            <option value="starships">Naves</option>
+            <option value="vehicles">Vehiculos</option>
+        </select>
+        <input type="text" id="buscador">
+        <!-- <select id="tipo_de_busqueda">
+            <option value="name">Nombre</option>
+            <option value="planets">Planetas</option>
+            <option value="films">Peliculas</option>
+            <option value="species">Especies</option>
+            <option value="vehicles">Vehiculos</option>
+            <option value="starships">Naves</option>
+        </select> -->
+        <section id="contenido_api"></section>
+    </main>
+</body>
+</html>
