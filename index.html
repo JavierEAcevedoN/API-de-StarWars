@@ -22,9 +22,9 @@
                 <option value="starships">Naves</option>
                 <option value="vehicles">Vehiculos</option>
             </select>
-            <select id="tipo_de_busqueda" style="display: none;">
+            <select id="tipo_de_busqueda"  onchange="MostrarBusqueda()" style="display: none;">
             </select>
-            <input type="text" id="buscador" style="display: none;">
+            <input type="text" id="buscador" onchange="BuscarElementos()" style="display: none;">
         </section>
         <section id="contenido_api"></section>
     </main>
