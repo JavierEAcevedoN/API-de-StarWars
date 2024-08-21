@@ -2,6 +2,8 @@
 :root {
     --color-fondo: black;
     --color-letra-borde: yellow;
+    --color-titulo-principal: orange;
+    --color-titulo-secundaria: white;
 }
 /* general */
 body {
@@ -10,19 +12,28 @@ body {
     flex-direction: column;
     margin: 0px;
     overflow-wrap: break-word;
-    align-items: center;
     background-color: var(--color-fondo);
     color: var(--color-letra-borde);
 }
 /* header */
+header {
+    display: flex;
+    justify-content: center;
+}
 header h1 {
     border: 1px solid var(--color-letra-borde);
     padding: 5px;
     border-radius: 20px;
+    text-align: center;
 }
 /* main */
-main select,
-main input {
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main section#informacion select,
+main section#informacion input {
     background-color: var(--color-fondo);
     color: var(--color-letra-borde);
     border: 1px solid var(--color-letra-borde);
@@ -31,4 +42,64 @@ main input {
     border-radius: 20px;
     padding: 5px;
     margin: 0px 5px;
+}
+main section#contenido_api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main section#contenido_api h1 {
+    margin: 10px;
+    font-size: 30px;
+    color: var(--color-letra-borde);
+}
+main section#contenido_api div.contenedor_elementos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+main section#contenido_api div.contenedor_elementos div.elementos {
+    border: 1px solid var(--color-letra-borde);
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    width: 200px;
+}
+main section#contenido_api div.contenedor_elementos div.elementos h2 {
+    color: var(--color-titulo-principal);
+    border: 1px solid var(--color-titulo-principal);
+    padding: 5px;
+    border-radius: 20px;
+}
+main section#contenido_api div.contenedor_elementos div.elementos h3 {
+    margin: 10px;
+    color: var(--color-titulo-secundaria);
+    border: 1px solid var(--color-titulo-secundaria);
+    border-radius: 20px;
+}
+@media (max-width: 300px) {
+    header h1 {
+        width: 68%;
+    }
+    main section#informacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main section#informacion select,
+    main section#informacion input {
+        width: 68%;
+    }
+    main section#contenido_api h1 {
+        width: 38%;
+    }
+    main section#contenido_api div.contenedor_elementos {
+        flex-direction: column;
+        align-items: center;
+    }
+    main section#contenido_api div.contenedor_elementos div.elementos {
+        width: 38%;
+        margin: 0px;
+    }
 }

@@ -12,24 +12,20 @@
         <h1>Star Wars API</h1>
     </header>
     <main>
-        <select id="categoria" onchange="MostrarCategoria()">
-            <option value="all">Todo</option>
-            <option value="films">Peliculas</option>
-            <option value="people">Personas</option>
-            <option value="planets">Planetas</option>
-            <option value="species">Especies</option>
-            <option value="starships">Naves</option>
-            <option value="vehicles">Vehiculos</option>
-        </select>
-        <input type="text" id="buscador">
-        <!-- <select id="tipo_de_busqueda">
-            <option value="name">Nombre</option>
-            <option value="planets">Planetas</option>
-            <option value="films">Peliculas</option>
-            <option value="species">Especies</option>
-            <option value="vehicles">Vehiculos</option>
-            <option value="starships">Naves</option>
-        </select> -->
+        <section id="informacion">
+            <select id="categoria" onchange="MostrarCategoria()">
+                <option value="all">Todo</option>
+                <option value="films">Peliculas</option>
+                <option value="people">Personas</option>
+                <option value="planets">Planetas</option>
+                <option value="species">Especies</option>
+                <option value="starships">Naves</option>
+                <option value="vehicles">Vehiculos</option>
+            </select>
+            <select id="tipo_de_busqueda" style="display: none;">
+            </select>
+            <input type="text" id="buscador" style="display: none;">
+        </section>
         <section id="contenido_api"></section>
     </main>
 </body>
