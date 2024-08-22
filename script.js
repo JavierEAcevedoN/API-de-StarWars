@@ -50,11 +50,13 @@ const CargarPeliculas = async (datos) => {
 };
 const CargarPersonas = async (datos) => {
     if (Object.hasOwnProperty.call(datos, "people")) {
-        const resultado = await CargarUrl(datos.people);
-        const contenido = resultado.results;
+        let resultado = await CargarUrl(datos.people);
         let contendoPersonas = "";
-        contenido.forEach((element) => {
-            contendoPersonas += `
+        while (true) {
+            let contenido = resultado.results;
+            let pagina = resultado.next;
+            contenido.forEach((element) => {
+                contendoPersonas += `
                 <div class="elementos">
                     <h2>${element.name}</h2>
                     <h3>Altura</h3>
@@ -73,44 +75,58 @@ const CargarPersonas = async (datos) => {
                     <p class="Genero">${element.gender}</p>
                 </div>
             `;
-        });
+            });
+            if (pagina === null) {
+                break;
+            } else {
+                resultado = await CargarUrl(pagina);
+            }
+        }
         contendoPersonas = `
-            <h1>Personas</h1>
-            <div class="contenedor_elementos">
-                ${contendoPersonas}
-            </div>
-        `;
+        <h1>Personas</h1>
+        <div class="contenedor_elementos">
+            ${contendoPersonas}
+        </div>
+    `;
         return contendoPersonas;
     }
 };
 const CargarPlanetas = async (datos) => {
     if (Object.hasOwnProperty.call(datos, "planets")) {
-        const resultado = await CargarUrl(datos.planets);
-        const contenido = resultado.results;
+        let resultado = await CargarUrl(datos.planets);
         let contendoPlanetas = "";
-        contenido.forEach((element) => {
-            contendoPlanetas += `
-                <div class="elementos">
-                    <h2>${element.name}</h2>
-                    <h3>Periodo de rotacion</h3>
-                    <p class="Periodo_de_rotacion">${element.rotation_period}</p>
-                    <h3>Periodo orbital</h3>
-                    <p class="Periodo_orbital">${element.orbital_period}</p>
-                    <h3>Diametro</h3>
-                    <p class="Diametro">${element.diameter}</p>
-                    <h3>Clima</h3>
-                    <p class="Clima">${element.climate}</p>
-                    <h3>Gravedad</h3>
-                    <p class="Gravedad">${element.gravity}</p>
-                    <h3>Terreno</h3>
-                    <p class="Terreno">${element.terrain}</p>
-                    <h3>Superficie del agua</h3>
-                    <p class="Superficie">${element.surface_water}</p>
-                    <h3>Poblacion</h3>
-                    <p class="Poblacion">${element.population}</p>
-                </div>
-            `;
-        });
+        while (true) {
+            let contenido = resultado.results;
+            let pagina = resultado.next;
+            contenido.forEach((element) => {
+                contendoPlanetas += `
+                    <div class="elementos">
+                        <h2>${element.name}</h2>
+                        <h3>Periodo de rotacion</h3>
+                        <p class="Periodo_de_rotacion">${element.rotation_period}</p>
+                        <h3>Periodo orbital</h3>
+                        <p class="Periodo_orbital">${element.orbital_period}</p>
+                        <h3>Diametro</h3>
+                        <p class="Diametro">${element.diameter}</p>
+                        <h3>Clima</h3>
+                        <p class="Clima">${element.climate}</p>
+                        <h3>Gravedad</h3>
+                        <p class="Gravedad">${element.gravity}</p>
+                        <h3>Terreno</h3>
+                        <p class="Terreno">${element.terrain}</p>
+                        <h3>Superficie del agua</h3>
+                        <p class="Superficie">${element.surface_water}</p>
+                        <h3>Poblacion</h3>
+                        <p class="Poblacion">${element.population}</p>
+                    </div>
+                `;
+            });
+            if (pagina === null) {
+                break;
+            } else {
+                resultado = await CargarUrl(pagina);
+            }
+        }
         contendoPlanetas = `
             <h1>Planetas</h1>
             <div class="contenedor_elementos">
@@ -122,32 +138,40 @@ const CargarPlanetas = async (datos) => {
 };
 const CargarEspecies = async (datos) => {
     if (Object.hasOwnProperty.call(datos, "species")) {
-        const resultado = await CargarUrl(datos.species);
-        const contenido = resultado.results;
+        let resultado = await CargarUrl(datos.species);
         let contendoEspecies = "";
-        contenido.forEach((element) => {
-            contendoEspecies += `
-                <div class="elementos">
-                    <h2>${element.name}</h2>
-                    <h3>Clasificacion</h3>
-                    <p class="Clasificacion">${element.classification}</p>
-                    <h3>Designacion</h3>
-                    <p class="Designacion">${element.designation}</p>
-                    <h3>Altura media</h3>
-                    <p class="Altura_media">${element.average_height}</p>
-                    <h3>Colores de piel</h3>
-                    <p class="Colores_de_piel">${element.skin_colors}</p>
-                    <h3>Colores de pelo</h3>
-                    <p class="Colores_de_pelo">${element.hair_colors}</p>
-                    <h3>Colores de ojos</h3>
-                    <p class="Colores_de_ojos">${element.eye_colors}</p>
-                    <h3>Vida media</h3>
-                    <p class="Vida_media">${element.average_lifespan}</p>
-                    <h3>Lenguaje</h3>
-                    <p class="Lenguaje">${element.language}</p>
-                </div>
-            `;
-        });
+        while (true) {
+            let contenido = resultado.results;
+            let pagina = resultado.next;
+            contenido.forEach((element) => {
+                contendoEspecies += `
+                    <div class="elementos">
+                        <h2>${element.name}</h2>
+                        <h3>Clasificacion</h3>
+                        <p class="Clasificacion">${element.classification}</p>
+                        <h3>Designacion</h3>
+                        <p class="Designacion">${element.designation}</p>
+                        <h3>Altura media</h3>
+                        <p class="Altura_media">${element.average_height}</p>
+                        <h3>Colores de piel</h3>
+                        <p class="Colores_de_piel">${element.skin_colors}</p>
+                        <h3>Colores de pelo</h3>
+                        <p class="Colores_de_pelo">${element.hair_colors}</p>
+                        <h3>Colores de ojos</h3>
+                        <p class="Colores_de_ojos">${element.eye_colors}</p>
+                        <h3>Vida media</h3>
+                        <p class="Vida_media">${element.average_lifespan}</p>
+                        <h3>Lenguaje</h3>
+                        <p class="Lenguaje">${element.language}</p>
+                    </div>
+                `;
+            });
+            if (pagina === null) {
+                break;
+            } else {
+                resultado = await CargarUrl(pagina);
+            }
+        }
         contendoEspecies = `
             <h1>Especies</h1>
             <div class="contenedor_elementos">
@@ -159,40 +183,48 @@ const CargarEspecies = async (datos) => {
 };
 const CargarNaves = async (datos) => {
     if (Object.hasOwnProperty.call(datos, "starships")) {
-        const resultado = await CargarUrl(datos.starships);
-        const contenido = resultado.results;
+        let resultado = await CargarUrl(datos.starships);
         let contendoNaves = "";
-        contenido.forEach((element) => {
-            contendoNaves += `
-                <div class="elementos">
-                    <h2>${element.name}</h2>
-                    <h3>Modelo</h3>
-                    <p class="Modelo">${element.model}</p>
-                    <h3>Fabricante</h3>
-                    <p class="Fabricante">${element.manufacturer}</p>
-                    <h3>Precio en creditos</h3>
-                    <p class="Precio_en_creditos">${element.cost_in_credits}</p>
-                    <h3>Largo</h3>
-                    <p class="Largo">${element.length}</p>
-                    <h3>Maxima velocidad atmosferica</h3>
-                    <p class="Maxima_velocidad_atmosferica">${element.max_atmosphering_speed}</p>
-                    <h3>Tripulación</h3>
-                    <p class="Tripulación">${element.crew}</p>
-                    <h3>Pasajeros</h3>
-                    <p class="Pasajeros">${element.passengers}</p>
-                    <h3>Capacidad de carga</h3>
-                    <p class="Capacidad_de_carga">${element.cargo_capacity}</p>
-                    <h3>Consumibles</h3>
-                    <p class="Consumibles">${element.consumables}</p>
-                    <h3>Clasificacion de hyperpropulsores</h3>
-                    <p class="Clasificacion_de_hyperpropulsores">${element.hyperdrive_rating}</p>
-                    <h3>MGLT</h3>
-                    <p class="MGLT">${element.MGLT}</p>
-                    <h3>Clase de nave</h3>
-                    <p class="Clase_de_nave">${element.starship_class}</p>
-                </div>
-            `;
-        });
+        while (true) {
+            let contenido = resultado.results;
+            let pagina = resultado.next;
+            contenido.forEach((element) => {
+                contendoNaves += `
+                    <div class="elementos">
+                        <h2>${element.name}</h2>
+                        <h3>Modelo</h3>
+                        <p class="Modelo">${element.model}</p>
+                        <h3>Fabricante</h3>
+                        <p class="Fabricante">${element.manufacturer}</p>
+                        <h3>Precio en creditos</h3>
+                        <p class="Precio_en_creditos">${element.cost_in_credits}</p>
+                        <h3>Largo</h3>
+                        <p class="Largo">${element.length}</p>
+                        <h3>Maxima velocidad atmosferica</h3>
+                        <p class="Maxima_velocidad_atmosferica">${element.max_atmosphering_speed}</p>
+                        <h3>Tripulación</h3>
+                        <p class="Tripulación">${element.crew}</p>
+                        <h3>Pasajeros</h3>
+                        <p class="Pasajeros">${element.passengers}</p>
+                        <h3>Capacidad de carga</h3>
+                        <p class="Capacidad_de_carga">${element.cargo_capacity}</p>
+                        <h3>Consumibles</h3>
+                        <p class="Consumibles">${element.consumables}</p>
+                        <h3>Clasificacion de hyperpropulsores</h3>
+                        <p class="Clasificacion_de_hyperpropulsores">${element.hyperdrive_rating}</p>
+                        <h3>MGLT</h3>
+                        <p class="MGLT">${element.MGLT}</p>
+                        <h3>Clase de nave</h3>
+                        <p class="Clase_de_nave">${element.starship_class}</p>
+                    </div>
+                `;
+            });
+            if (pagina === null) {
+                break;
+            } else {
+                resultado = await CargarUrl(pagina);
+            }
+        }
         contendoNaves = `
             <h1>Naves</h1>
             <div class="contenedor_elementos">
@@ -204,36 +236,44 @@ const CargarNaves = async (datos) => {
 };
 const CargarVehiculos = async (datos) => {
     if (Object.hasOwnProperty.call(datos, "vehicles")) {
-        const resultado = await CargarUrl(datos.vehicles);
-        const contenido = resultado.results;
+        let resultado = await CargarUrl(datos.vehicles);
         let contendoVehiculos = "";
-        contenido.forEach((element) => {
-            contendoVehiculos += `
-                <div class="elementos">
-                    <h2>${element.name}</h2>
-                    <h3>Modelo</h3>
-                    <p class="Modelo">${element.model}</p>
-                    <h3>Fabricante</h3>
-                    <p class="Fabricante">${element.manufacturer}</p>
-                    <h3>Costo en creditos</h3>
-                    <p class="Costo_en_creditos">${element.cost_in_credits}</p>
-                    <h3>Largo</h3>
-                    <p class="Largo">${element.length}</p>
-                    <h3>Maxima velocidad atmosferica</h3>
-                    <p class="Maxima_velocidad_atmosferica">${element.max_atmosphering_speed}</p>
-                    <h3>Tripulación</h3>
-                    <p class="Tripulación">${element.crew}</p>
-                    <h3>Pasajeros</h3>
-                    <p class="Pasajeros">${element.passengers}</p>
-                    <h3>Capacidad de carga</h3>
-                    <p class="Capacidad_de_carga">${element.cargo_capacity}</p>
-                    <h3>Consumibles</h3>
-                    <p class="Consumibles">${element.consumables}</p>
-                    <h3>Clase de vehiculo</h3>
-                    <p class="Clase_de_vehiculo">${element.vehicle_class}</p>
-                </div>
-            `;
-        });
+        while (true) {
+            let contenido = resultado.results;
+            let pagina = resultado.next;
+            contenido.forEach((element) => {
+                contendoVehiculos += `
+                    <div class="elementos">
+                        <h2>${element.name}</h2>
+                        <h3>Modelo</h3>
+                        <p class="Modelo">${element.model}</p>
+                        <h3>Fabricante</h3>
+                        <p class="Fabricante">${element.manufacturer}</p>
+                        <h3>Costo en creditos</h3>
+                        <p class="Costo_en_creditos">${element.cost_in_credits}</p>
+                        <h3>Largo</h3>
+                        <p class="Largo">${element.length}</p>
+                        <h3>Maxima velocidad atmosferica</h3>
+                        <p class="Maxima_velocidad_atmosferica">${element.max_atmosphering_speed}</p>
+                        <h3>Tripulación</h3>
+                        <p class="Tripulación">${element.crew}</p>
+                        <h3>Pasajeros</h3>
+                        <p class="Pasajeros">${element.passengers}</p>
+                        <h3>Capacidad de carga</h3>
+                        <p class="Capacidad_de_carga">${element.cargo_capacity}</p>
+                        <h3>Consumibles</h3>
+                        <p class="Consumibles">${element.consumables}</p>
+                        <h3>Clase de vehiculo</h3>
+                        <p class="Clase_de_vehiculo">${element.vehicle_class}</p>
+                    </div>
+                `;
+            });
+            if (pagina === null) {
+                break;
+            } else {
+                resultado = await CargarUrl(pagina);
+            }
+        }
         contendoVehiculos = `
             <h1>Vehiculos</h1>
             <div class="contenedor_elementos">
@@ -316,7 +356,11 @@ const BuscarElementos = () => {
         ContenidoAPI.querySelectorAll('div[style="display: none;"]').length ==
         elementos.length
     ) {
-        alert(`No se encontro ninguna coincidencia de ${opcion.split("_").join(" ")}`);
+        alert(
+            `No se encontro ninguna coincidencia de ${opcion
+                .split("_")
+                .join(" ")}`
+        );
         for (let i = 0; i < elementos.length; i++) {
             const element = elementos[i];
             element.style.display = "block";
