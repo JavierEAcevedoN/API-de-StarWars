@@ -14,17 +14,19 @@ body {
     overflow-wrap: break-word;
     background-color: var(--color-fondo);
     color: var(--color-letra-borde);
+    background: black;
+    background-image: radial-gradient(circle, white 1px, transparent 2px),
+    radial-gradient(circle, white 1px, transparent 2px);
+    background-size: 100px 100px, 100px 100px;
+    animation: moveBackground 15s linear infinite;
 }
 /* header */
 header {
     display: flex;
     justify-content: center;
 }
-header h1 {
-    border: 1px solid var(--color-letra-borde);
-    padding: 5px;
-    border-radius: 20px;
-    text-align: center;
+header img {
+    width: 350px;
 }
 /* main */
 main {
@@ -77,29 +79,43 @@ main section#contenido_api div.contenedor_elementos div.elementos h3 {
     color: var(--color-titulo-secundaria);
     border: 1px solid var(--color-titulo-secundaria);
     border-radius: 20px;
+    padding: 5px;
 }
-@media (max-width: 300px) {
-    header h1 {
-        width: 68%;
+@keyframes moveBackground {
+    from {
+        background-position: 0px 0px, 50px 50px;
     }
+    to {
+        background-position: 100px 100px, 150px 150px;
+    }
+}
+@media (max-width: 695px) {
     main section#informacion {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+    }
+}
+@media (max-width: 375px) {
+    header img {
+        width: 97%;
     }
     main section#informacion select,
     main section#informacion input {
-        width: 68%;
+        width: 85%;
     }
     main section#contenido_api h1 {
-        width: 38%;
+        width: 56%;
+        text-align: center;
     }
     main section#contenido_api div.contenedor_elementos {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
     main section#contenido_api div.contenedor_elementos div.elementos {
-        width: 38%;
+        width: 56%;
         margin: 0px;
     }
 }
