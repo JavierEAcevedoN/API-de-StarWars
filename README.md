@@ -15,7 +15,6 @@ En la pagina se puede buscar todo el contenido de la API de Star Wars, se puede 
 ### Caracteristicas
 El proyecto fue hecho con HTML para la estructura, CSS para el diseño y el responsive y el Javascript para la generacion de los elementos y logica de la pagina.
 ### Tecnologias
-{Tecnologias utilizadas}
 - HTML: para la estructura.
 - CSS: para el diseño y responsive.
 - JavaScript: para la generacion de los elementos y la logica.
@@ -25,8 +24,10 @@ Clonar el repositorio
 https://github.com/JavierEAcevedoN/Proyecto_JavaScript_AcevedoJavierNogueraEduardo.git
 ```
 ### Uso
-Se descarga el repositorio se abre en VS code y se ejecuta el index.html con live server,  
-o se puede abrir extrayendo el zip y dando doble click en el index.html.
+Se descarga el repositorio se abre en VS code y se ejecuta el index.html con live server.  
+Se puede abrir extrayendo el zip y dando doble click en el index.html.  
+O se puede abrir con el siguiente enlace:
+- [Pagina](https://javiereacevedon.github.io/Proyecto_JavaScript_AcevedoJavierNogueraEduardo/)
 ### Autor
 - [JavierEAcevedoN](https://github.com/JavierEAcevedoN)
 ### Contacto
