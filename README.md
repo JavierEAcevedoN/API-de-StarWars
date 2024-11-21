@@ -21,13 +21,13 @@ El proyecto fue hecho con HTML para la estructura, CSS para el diseño y el resp
 ### Instalacion
 Clonar el repositorio
 ```sh
-https://github.com/JavierEAcevedoN/Proyecto_JavaScript_AcevedoJavierNogueraEduardo.git
+https://github.com/JavierEAcevedoN/API-de-StarWars.git
 ```
 ### Uso
 Se descarga el repositorio se abre en VS code y se ejecuta el index.html con live server.  
 Se puede abrir extrayendo el zip y dando doble click en el index.html.  
 O se puede abrir con el siguiente enlace:
-- [Pagina](https://javiereacevedon.github.io/Proyecto_JavaScript_AcevedoJavierNogueraEduardo/)
+- [Pagina](https://javiereacevedon.github.io/API-de-StarWars/)
 ### Autor
 - [JavierEAcevedoN](https://github.com/JavierEAcevedoN)
 ### Contacto
